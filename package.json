@@ -2,7 +2,7 @@
   "name": "seldriyo-m",
   "version": "1.0.0",
   "description": "seldriyo moderator bot just availible for '-IR-' BEst",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
