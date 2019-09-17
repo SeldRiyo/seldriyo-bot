@@ -132,6 +132,29 @@ client.on("message", async message => {
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
+  
+  if(command === "link") {
+	  message.replay(`https://discord.gg/q6bQpth`)
+  }
+  if(command === "help") {
+	  message.replay(`>>> '-IR-' SeldRiyo:registered:
+hey guy! there are some commands of me :D 
+
+
+**!help** help you
+
+**!kick <user>** kick somebody (just available for owner and co-owners)
+
+**!ban <user>** ban somebody (just available for owner and co-owners)
+
+**!ping** give the latency
+
+**!say <text>** bot will delete the command and send your text! thats funny xD
+
+**!link** give the link of **'-IR-' BEST** server on discord
+
+**!purge <num>** delete messages of the channel bettwen 2 and 100`)
+  }
 });
 
 client.login(config.token);
