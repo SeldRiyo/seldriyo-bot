@@ -1,25 +1,17 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var prefix = "!";
-client.on("ready", () => {
-  // This event will run if the bot starts, and logs in, successfully.
-  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-  // Example of changing the bot's playing game to something useful. `client.user` is what the
-  // docs refer to as the "ClientUser".
-  client.user.setActivity(`Serving ${client.guilds.size} servers. type !help`);
+client.on('ready', () => {
+    client.user.setStatus('dnd')
+    client.user.setPresence({
+        game: {
+            name: "'-IR-' B3ST",
+            type: "STREAMING",
+            url: "https://www.twitch.tv/SeldRiyo"
+        }
+    });
 });
 
-client.on("guildCreate", guild => {
-  // This event triggers when the bot joins a guild.
-  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setActivity(`Serving ${client.guilds.size} servers. type !help`);
-});
-
-client.on("guildDelete", guild => {
-  // this event triggers when the bot is removed from a guild.
-  console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  client.user.setActivity(`Serving ${client.guilds.size} servers. type !help`);
-});
 
 
 client.on("message", async message => {
@@ -42,14 +34,14 @@ client.on("message", async message => {
   
   // Let's go with a few common example commands! Feel free to delete or change those.
   
-  if(command === "ping") {
+  if(command == 'ping') {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
     const m = await message.channel.send("Ping?");
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
   
-  if(command === "say") {
+  if(command == 'say' || command == 's') {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
     const sayMessage = args.join(" ");
@@ -59,7 +51,7 @@ client.on("message", async message => {
     message.channel.send(sayMessage);
   }
   
-  if(command === "kick") {
+  if(command == 'kick' || command == 'sihtir' || command == 'siktir') {
     // This command must be limited to mods and admins. In this example we just hardcode the role names.
     // Please read on Array.some() to understand this bit: 
     // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
@@ -87,7 +79,7 @@ client.on("message", async message => {
 
   }
   
-  if(command === "ban") {
+  if(command == 'ban' || command == 'usuck' || command == 'koni') {
     // Most of this command is identical to kick, except that here we'll only let admins do it.
     // In the real world mods could ban too, but this is just an example, right? ;)
     if(!message.member.roles.some(r=>["OWNER [100]", "CO-OWNERS [100]"].includes(r.name)) )
@@ -107,7 +99,7 @@ client.on("message", async message => {
     message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
   }
   
-  if(command === "purge") {
+  if(command == 'del' || command == 'delete') {
     // This command removes all messages from all users in the channel, up to 100.
     
     // get the delete count, as an actual number.
@@ -123,10 +115,10 @@ client.on("message", async message => {
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
   
-  if(command === "link") {
+  if(command == 'link' || command == 'koja' || command == 'own' || command == 'owner' || command == 'server') {
 	  message.channel.send(`https://discord.gg/q6bQpth`)
   }
-  if(command === "help") {
+  if(command == 'help') {
 	  message.channel.send(`>>> [B3ST] SeldRiyo:registered:
 hey guy! there are some commands of me :D 
 
@@ -141,9 +133,9 @@ hey guy! there are some commands of me :D
 
 **!say <text>** bot will delete the command and send your text! thats funny xD
 
-**!link** give the link of **'-IR-' BEST** server on discord
+**!link** give the link of **'-IR-' B3ST** server on discord
 
-**!purge <num>** delete messages of the channel bettwen 2 and 100`)
+**!del <num>** delete messages of the channel bettwen 2 and 100`)
   }
 });
 
