@@ -119,7 +119,7 @@ client.on("message", async message => {
 	  message.channel.send(`https://discord.gg/q6bQpth`)
   }
   if(command == 'help') {
-	  message.channel.send(`>>> [B3ST] SeldRiyo:registered:
+	  message.channel.send(`>>> [BT] SeldRiyo:registered:
 hey guy! there are some commands of me :D 
 
 
