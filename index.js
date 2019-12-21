@@ -81,11 +81,11 @@ client.on("message", async message => {
   }
   
   if (command == 'help') {
-    message.react(':ok_hand:');
+    message.react('👌');
 let botembed = new Discord.RichEmbed()
    .setTitle('[BT] SeldRiyo:registered: Bot. ')
    .setDescription('prefix **$**')
-   .setColor('purple')
+   .setColor(purple)
    .setURL('http://bit.ly/SeldRiyo')
    .addField('help','Help you :D')
    .addField('link',`'-IR-' B3ST Server Link!!`)
