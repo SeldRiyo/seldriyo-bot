@@ -2,15 +2,8 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var prefix = "$";
 client.on('ready', () => {
-    client.user.setStatus('dnd')
-    client.user.setPresence({
-        game: {
-            name: "'-IR-' B3ST",
-            type: "STREAMING",
-            url: "http://Bit.ly/SeldRiyo"
-        }
-    });
-});
+	client.user.setStatus('dnd', 'Made by SeldRiyo'); 
+}
 
 client.on("message", async message => {
 
