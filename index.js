@@ -34,7 +34,7 @@ client.on("message", async message => {
 
   if(command == 'kick') {
     if(!message.member.roles.some(r=>["OWNER [100]", "CO-OWNERS [100]"].includes(r.name)) )
-      return message.reply("Sorry, you don't have permissions to use this
+      return message.reply("Sorry, you don't have permissions to use this;
   
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
