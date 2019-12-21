@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-var prefix = "!";
+var prefix = "$";
 client.on('ready', () => {
     client.user.setStatus('dnd')
     client.user.setPresence({
         game: {
             name: "'-IR-' B3ST",
             type: "STREAMING",
-            url: "https://www.twitch.tv/SeldRiyo"
+            url: "http://Bit.ly/SeldRiyo"
         }
     });
 });
