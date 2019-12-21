@@ -3,7 +3,7 @@ const client = new Discord.Client();
 var prefix = "$";
 
 client.on("ready", () => {
-  client.user.setActivity('dnd', 'Made by SeldRiyo');
+  client.user.setActivity('Made by SeldRiyo','dnd);
 });
 
 client.on("message", async message => {
