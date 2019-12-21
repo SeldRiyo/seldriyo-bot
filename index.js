@@ -88,21 +88,16 @@ client.on("message", async message => {
   if (command == 'help') {
     message.react(':ok_hand:');
 let botembed = new Discord.RichEmbed()
-   .setTitle(`[BT] SeldRiyo:registered: Bot. prefix < **${prefix}** >`)
-     .setDescription('play')
-		.addField('Start music')
-	.setDescription('skip')
-		.addField('Skip the song')
-	.setDescription('pause')
-		.addField('Pause the song')
-	.setDescription('resume')
-		.addField('Unpause')
-	.setDescription('queue')
-		.addField('Shows the current queue')
-	.setDescription('np')
-		.addField('Show the song you are currently playing')
-	.setDescription('stop')
-		.addField('Stop the bot')
+   .setTitle('[BT] SeldRiyo:registered: Bot. ')
+   .setDescription(`prefix < **${prefix}** >`)
+   .setColor('purple')
+   .setURL('http://bit.ly/SeldRiyo')
+   .addField('help','Help you :D')
+   .addField('link',`'-IR-' B3ST Server Link!!`)
+   .addField('kick','Kick somebody from server')
+   .addField('ban','Ban somebody from server')
+   .addField('del','Delete 2 - 100 messeages from server')
+   .addField('ping','Show your latancy and the API latnecy!!')
    .setFooter(`${message.author.username}`, message.author.displayAvatarURL);
    return message.author.send(botembed);
     }
