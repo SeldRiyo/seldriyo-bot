@@ -4,7 +4,7 @@ var prefix = "$";
 
 client.on("ready", () => {
     client.user.setStatus('dnd')
-    client.user.setPresence({game: {name: "SeldRiyo",type: "STREAMING",url: "https://bit.ly/SeldRiyo"}
+    client.user.setPresence({game: {name: "SeldRiyo",type: "STREAMING",url: "https://www.twitch.tv/SeldRiyo"}
     });
 });
 
