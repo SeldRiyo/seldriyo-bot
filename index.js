@@ -1,28 +1,3 @@
-const http = require('http');
-
-process
-  .on('SIGTERM', shutdown('SIGTERM'))
-  .on('SIGINT', shutdown('SIGINT'))
-  .on('uncaughtException', shutdown('uncaughtException'));
-
-setInterval(console.log.bind(console, 'tick'), 5000);
-http.createServer((req, res) => res.end('hi'))
-  .listen(process.env.PORT || 3000, () => console.log('Listening'));
-
-function shutdown(signal) {
-  return (err) => {
-    console.log(`${ signal }...`);
-    if (err) console.error(err.stack || err);
-    setTimeout(() => {
-      console.log('...waited 25s, exiting.');
-      process.exit(err ? 1 : 0);
-    }, 25000).unref();
-  };
-}
-const Discord = require("discord.js");
-const client = new Discord.Client();
-var prefix = "$";
-
 client.on("ready", () => {
     client.user.setPresence({game: {name: "SeldRiyo",type: "STREAMING",url: "https://www.twitch.tv/SeldRiyo"}
     });
