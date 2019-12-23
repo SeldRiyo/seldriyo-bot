@@ -1,3 +1,6 @@
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const prefix = process.env.BOT_PREFIX;
 client.on("ready", () => {
     client.user.setPresence({game: {name: "SeldRiyo",type: "STREAMING",url: "https://www.twitch.tv/SeldRiyo"}
     });
