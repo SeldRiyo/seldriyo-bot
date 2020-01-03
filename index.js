@@ -5,7 +5,7 @@ const prefix = process.env.BOT_PREFIX;
 //-end
 
 //bot stats-start
-client.on("ready", () => {client.user.setPresence({game: {name: "SeldRiyo",type: "STREAMING",url: "https://www.twitch.tv/SeldRiyo"}});});});
+client.on("ready", () => {client.user.setPresence({game: {name: "SeldRiyo",type: "STREAMING",url: "https://www.twitch.tv/SeldRiyo"}});});
 //bot stats-end
 
 //-start
