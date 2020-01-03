@@ -1,22 +1,22 @@
+//requires and others -start
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = process.env.BOT_PREFIX;
-client.on("ready", () => {
-    client.user.setPresence({game: {name: "SeldRiyo",type: "STREAMING",url: "https://www.twitch.tv/SeldRiyo"}
-    });
-});
-clinet.on("guild.create", () => {
-	const ch = guild.channels;
-	return message.ch[0].send("SeldRiyo is here !!!!");
-});
+//-end
+
+//bot stats-start
+client.on("ready", () => {client.user.setPresence({game: {name: "SeldRiyo",type: "STREAMING",url: "https://www.twitch.tv/SeldRiyo"}});});});
+//bot stats-end
+
+//-start
 client.on("message", async message => {
   if(message.author.bot) return;
-
   if(message.content.indexOf(prefix) !== 0) return;
-
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-
+//-end
+	
+//command-start
   if(command == 'ping') {
     const m = await message.channel.send("Ping?");
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
@@ -99,5 +99,5 @@ let botembed = new Discord.RichEmbed()
    return message.author.send(botembed);
     }
 });
-
+//command-end
 client.login(process.env.BOT_TOKEN);
