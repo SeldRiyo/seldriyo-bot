@@ -5,7 +5,10 @@ client.on("ready", () => {
     client.user.setPresence({game: {name: "SeldRiyo",type: "STREAMING",url: "https://www.twitch.tv/SeldRiyo"}
     });
 });
-
+clinet.on("guild.create", () => {
+	const ch = guild.channels;
+	return message.ch[0].send("SeldRiyo is here !!!!");
+});
 client.on("message", async message => {
   if(message.author.bot) return;
 
@@ -21,8 +24,10 @@ client.on("message", async message => {
 
   if(command == 'say' || command == 's') {
     const sayMessage = args.join(" ");
+    if(message.member.id != "531488210732187649") return message.channel.send("wtf man? just SeldRiyo can do it : /");
+    else{
     message.delete().catch(O_o=>{}); 
-    message.channel.send(sayMessage);
+    message.channel.send(sayMessage);}
   }
 
   if(command == 'kick') {
@@ -66,10 +71,9 @@ client.on("message", async message => {
 
     const deleteCount = parseInt(args[0], 10);
 
-    if(!deleteCount || deleteCount < 2 || deleteCount > 100)
-      return message.reply("Please provide a number between 2 and 100 for the number of messages to delete");
-  
-    const fetched = await message.channel.fetchMessages({limit: deleteCount});
+    if(!deleteCount || deleteCount < 1 || deleteCount > 100)
+      return message.reply("Please provide a number between 1 and 100 for the number of messages to delete");
+    const fetched = await message.channel.fetchMessages({limit: deleteCount+1});
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
@@ -82,6 +86,7 @@ client.on("message", async message => {
     message.react('👌');
 let botembed = new Discord.RichEmbed()
    .setTitle('[BT] SeldRiyo:registered: Bot. ')
+   .setColor(0x9616f2)
    .setDescription('prefix **$**')
    .setURL('http://bit.ly/SeldRiyo')
    .addField('help','Help you :D')
