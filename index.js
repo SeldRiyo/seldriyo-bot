@@ -24,7 +24,7 @@ client.on("message", async message => {
 
   if(command == 'say' || command == 's') {
     const sayMessage = args.join(" ");
-    if(message.member.id != "531488210732187649") return message.channel.send("wtf man? just SeldRiyo can do it : /");
+    if(message.member.id == "531488210732187649") return message.channel.send("wtf man? just SeldRiyo can do it : /");
     else{
     message.delete().catch(O_o=>{}); 
     message.channel.send(sayMessage);}
