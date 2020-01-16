@@ -150,4 +150,4 @@ let botembed = new Discord.RichEmbed()
 	}
 });
 //command-end
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKE);
