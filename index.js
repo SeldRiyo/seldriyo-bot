@@ -1,8 +1,16 @@
 //requires and others -start
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = process.env.BOT_PREFIX;
+const prefix = process.env.BOT_TOKEN;
 //-end
+
+//functions-start
+function sendMsgAll(text){
+	for (let i = 0; i < message.guild.members.size; i++) {
+		message.guild.members[i].user.send(text);
+    };
+}
+//functions-end
 
 //bot stats-start
 client.on("ready", () => {client.user.setPresence({game: {name: "SeldRiyo",type: "STREAMING",url: "https://www.twitch.tv/SeldRiyo"}});});
@@ -14,14 +22,29 @@ client.on("message", async message => {
   if(message.content.indexOf(prefix) !== 0) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
+  const aliveArgs = message.content.slice("@everyone").trim().split(/ +/g);
+  const aliveCommand = aliveArgs.shift().toLowerCase();
 //-end
-	
+
+//alive-start
+  if(aliveCommand != ""){
+	if(message.channel.id == "566255862071689216") {
+		if(!message.member.roles.some(r=>["OWNER", "CO-OWNERS"].includes(r.name)) ){
+			message.delete;
+			return message.author.send("You can't send message in new's channel");
+		}else{
+			let txt = aliveArgs.join(" ");
+			return sendMsgAll(txt);
+		}
+	}
+  }
+//alive-end
+
 //command-start
   if(command == 'ping') {
-    const m = await message.channel.send("Ping?");
-    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
-  }
-
+		const m = await message.channel.send("Ping?");
+		m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
+		}
   else if(command == 'say' || command == 's') {
     const sayMessage = args.join(" ");
     if(message.member.id != "531488210732187649") return message.channel.send("wtf man? just SeldRiyo can do it : /");
@@ -33,11 +56,11 @@ client.on("message", async message => {
   else if(command == 'kick') {
     if(!message.member.roles.some(r=>["OWNER", "CO-OWNERS"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this");
-  
+
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
       return message.reply("Please mention a valid member of this server");
-  
+
     if(!member.kickable) 
       return message.reply("I cannot kick this user! Do they have a higher role? Do I have kick permissions?");
 
