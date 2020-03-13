@@ -1,7 +1,7 @@
 //requires and others -start
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = process.env.BOT_TOKEN;
+const prefix = process.env.BOT_PREFIX;
 //-end
 
 //functions-start
